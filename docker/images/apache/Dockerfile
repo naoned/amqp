@@ -1,4 +1,4 @@
-FROM php:7.2-cli
+FROM php:8.1-cli
 
 RUN echo 'APT::Install-Recommends "0";' >>/etc/apt/apt.conf.d/99-recommends && \
     echo 'APT::Install-Suggests "0";' >>/etc/apt/apt.conf.d/99-suggests

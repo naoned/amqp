@@ -104,11 +104,9 @@ TEXT;
         $this->assertNull($message->getRoutingKeyFromHeader());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testGetNonStandardAttribute()
     {
+        $this->expectException(\InvalidArgumentException::class);
         $swarrotMessage = new Message('', [
             'content_type' => ContentType::EMPTY_CONTENT,
             'content_encoding' => 'utf-8'
@@ -118,11 +116,9 @@ TEXT;
         $message->getAttribute('not_an_amqp_attribute');
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testInvalidConstruction()
     {
+        $this->expectException(\InvalidArgumentException::class);
         $swarrotMessage = new Message('', [
             'no_content_type_attribute' => 2
         ]);

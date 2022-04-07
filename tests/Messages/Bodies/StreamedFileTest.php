@@ -42,11 +42,9 @@ class classTest extends TestCase
         );
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testCannotConstruct()
     {
+        $this->expectException(\InvalidArgumentException::class);
         new StreamedFile('/does/not/exist');
     }
 

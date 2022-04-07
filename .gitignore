@@ -38,3 +38,4 @@ docker/docker-compose.yml
 docker/images/phpunit/Dockerfile
 docker/images/phpunit/php.ini
 whalephant
+.phpunit.result.cache

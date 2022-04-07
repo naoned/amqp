@@ -3,6 +3,7 @@
 namespace Puzzle\AMQP\Messages\Bodies;
 
 use PHPUnit\Framework\TestCase;
+use Puzzle\Pieces\Exceptions\JsonDecodeError;
 
 class JsonTest extends TestCase
 {
@@ -36,10 +37,10 @@ class JsonTest extends TestCase
     
     /**
      * @dataProvider providerTestJsonEncodeException
-     * @expectedException \Puzzle\Pieces\Exceptions\JsonEncodeError
      */
     public function testJsonEncodeException($content)
     {
+        $this->expectException(\Puzzle\Pieces\Exceptions\JsonEncodeError::class);
         $body = new Json($content);
         $body->asTransported();
     }
@@ -68,10 +69,10 @@ class JsonTest extends TestCase
     
     /**
      * @dataProvider providerTestJsonDecodeException
-     * @expectedException Puzzle\Pieces\Exceptions\JsonDecodeError
      */
     public function testJsonDecodeException($json)
     {
+        $this->expectException(JsonDecodeError::class);
         $body = new Json();
         $body->changeContentWithJson($json);
     }

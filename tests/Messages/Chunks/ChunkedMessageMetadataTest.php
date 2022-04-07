@@ -27,11 +27,9 @@ class ChunkedMessageMetadataTest extends TestCase
         $this->assertSame(sha1($content), $metadata->checksum());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testWithInvalidHeaders()
     {
+        $this->expectException(\InvalidArgumentException::class);
         ChunkedMessageMetadata::buildFromHeaders([]);
     }
 }
